@@ -15,6 +15,8 @@ public interface BlogCommentsDAO {
 	public BlogCommentz saveOrUpdate(BlogCommentz bcomment);
 		
 	public void delete(int id);
+
+	public BlogCommentz save(BlogCommentz bcomment);
 	
 
 

@@ -93,13 +93,13 @@ public class BlogController {
 
 	}
 	
-	@PutMapping("/blogs/{id}")  // works what is id in this line how is id passed
-	public ResponseEntity updateBlog(@PathVariable int id, @RequestBody Blog blog) {
+	@PutMapping("/blogs")  // works what is id in this line how is id passed
+	public ResponseEntity updateBlog(@RequestBody Blog blog) {
 
 		 blogDAO.saveOrUpdate(blog);
 
 		if (blog==null) {
-			return new ResponseEntity("No Blog found for id " + id, HttpStatus.NOT_FOUND);
+			return new ResponseEntity("No Blog found for id " + blog.getBlogId(), HttpStatus.NOT_FOUND);
 		}
 
 		return new ResponseEntity(blog, HttpStatus.OK);

@@ -63,23 +63,23 @@ public class BlogCommentController {
 		return new ResponseEntity(blogComment, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/blogcomments")
+	@PostMapping(value = "/blogcomments") // not working in POSTMAN
 	public ResponseEntity createBlogComment(@RequestBody BlogCommentz blogComment, HttpSession session) {
-		System.out.println("haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaai");
+		System.out.println("Sup");
 		
-		/*User user = (User) session.getAttribute("user");*/
-		
-		/*System.out.println(user.getEmail());
+		User user = (User) session.getAttribute("user"); // what is this blue user
+		System.out.println("hRakesh");
+		System.out.println(user.getEmail());
 		System.out.println(user.getMobile());
-		blogComment.setUserName(user.getName());
-		blogComment.setUserMail(user.getEmail());
-		blogComment.setUserId(user.getId())*/;
+		blogComment.setUsername(user.getName()); // is it get username
+		blogComment.setMail(user.getEmail());
+		blogComment.setUserId(user.getCusId());
 		
 		int blogId =  (Integer) session.getAttribute("blogId"); // is this correct ?
 		System.out.println("________________________________________________________---------------------------");
 		System.out.println(blogId);
-	 blogComment.setBlogId(blogId);
-		blogCommentDAO.saveOrUpdate(blogComment);
+	      blogComment.setBlogId(blogId);
+		blogCommentDAO.save(blogComment);  // saveOrUpdate not working
 		return new ResponseEntity(blogComment, HttpStatus.OK);
 	}
 	

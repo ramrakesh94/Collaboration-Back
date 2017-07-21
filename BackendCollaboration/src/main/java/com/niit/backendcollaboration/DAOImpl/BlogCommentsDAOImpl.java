@@ -54,6 +54,11 @@ public class BlogCommentsDAOImpl implements BlogCommentsDAO {
 		sessionFactory.getCurrentSession().saveOrUpdate(bcomment);
 		return bcomment;
 	}
+	
+	public BlogCommentz save(BlogCommentz bcomment) {
+		sessionFactory.getCurrentSession().save(bcomment);
+		return bcomment;
+	}
 
 	public void delete(int id) {
 		BlogCommentz commentToDelete = new BlogCommentz();
@@ -61,6 +66,7 @@ public class BlogCommentsDAOImpl implements BlogCommentsDAO {
 		sessionFactory.getCurrentSession().delete(commentToDelete);
 		
 	}
+	
 	
 	
 

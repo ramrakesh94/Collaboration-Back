@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.backendcollaboration.DAO.AppliedJobsDAO;
 import com.niit.backendcollaboration.DAO.BlogCommentsDAO;
 import com.niit.backendcollaboration.DAO.BlogDAO;
 import com.niit.backendcollaboration.DAO.ChatDAO;
@@ -23,6 +24,7 @@ import com.niit.backendcollaboration.DAO.ForumDAO;*/
 import com.niit.backendcollaboration.DAO.FriendDAO;
 import com.niit.backendcollaboration.DAO.JobDAO;
 import com.niit.backendcollaboration.DAO.UserDAO;
+import com.niit.backendcollaboration.DAOImpl.AppliedJobsDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.BlogCommentsDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.BlogDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.ChatDAOImpl;
@@ -32,6 +34,7 @@ import com.niit.backendcollaboration.DAOImpl.ForumCommentsDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.FriendDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.JobDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.UserDAOImpl;
+import com.niit.backendcollaboration.model.AppliedJobs;
 import com.niit.backendcollaboration.model.Blog;
 import com.niit.backendcollaboration.model.BlogCommentz;
 import com.niit.backendcollaboration.model.Chat;
@@ -96,6 +99,7 @@ public class ApplicationContext {
 		sessionBuilder.addAnnotatedClass(Friend.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
 		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(AppliedJobs.class);
 		
 
 		/* logger.debug("Ending of the method getSessionFactory"); */
@@ -166,6 +170,12 @@ public class ApplicationContext {
 		public BlogCommentsDAO getBlogCommentsDAO(SessionFactory sessionFactory) {
 			return new BlogCommentsDAOImpl(sessionFactory);
 		}*/
+	
+	@Autowired(required = true)
+	@Bean(name = "appliedJobsDAO")
+	public AppliedJobsDAO getAjobDAO(SessionFactory sessionFactory) {
+		return new AppliedJobsDAOImpl(sessionFactory);
+	}
 
 }
 
