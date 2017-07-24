@@ -35,24 +35,24 @@ public class FriendController {
 		this.friendDAO = friendDAO;
 	}
 	
-	@GetMapping("/friends")
-	public List<Friend> getCustomers() {
-		return friendDAO.list();
-	}
-	
 	@GetMapping("/friend/{userId}")
-	public List<Friend> getByUser(@PathVariable("userId") int userId) {
-		return friendDAO.list(userId);
+	public List<Friend> getByUser(@PathVariable("userId")int userId) {
+		return friendDAO.getByUser(userId);
 	}
 	
-	@GetMapping("/friends/{name}")  
-	public List<Friend> geByID(@PathVariable("name") String name) {
-		return friendDAO.getByFriendName(name);
+	@GetMapping("/friends/{userName}")  
+	public List<Friend> getByName(@PathVariable("userName") String userName) {
+		return friendDAO.getByName(userName);
 		
 	}
-	
+/*	
+	@GetMapping("/friendsAccepted/{userName}")  
+	public List<Friend> getByFriendName(@PathVariable("userName") String userName) {
+		return friendDAO.getByFriendName(userName);
+		
+	}*/
 	@GetMapping("/friendsAccepted/{name}")  
-	public List<Friend> geByFriendAccepted(@PathVariable("name") String name) {
+	public List<Friend> getByFriendAccepted(@PathVariable("name") String name) {
 		return friendDAO.getByFriendAccepted(name);
 		
 	}
@@ -61,13 +61,13 @@ public class FriendController {
 	public ResponseEntity createFriend(@RequestBody User friendUser, HttpSession session) {
 		User user = (User) session.getAttribute("user");   
 		friend.setUserId(user.getCusId());
-		friend.setUserName(user.getUsername());
-		friend.setUserstatus("P");
-		friend.setFriendId(friendUser.getCusId());
-		friend.setFriendName(friendUser.getUsername());
+		friend.setUserName(user.getName());
+		friend.setUserStatus("P");
+		friend.setFriendId(friendUser.getCusId());  // getCusId()
+		friend.setFriendName(friendUser.getName());
 		friend.setIsOnline("TRUE");
 	
-		friendDAO.saveOrUpdate(friend);
+		friendDAO.save(friend);
 
 		return new ResponseEntity(friend, HttpStatus.OK);
 	}
@@ -75,13 +75,13 @@ public class FriendController {
 	@PutMapping("/friendAccept")
 	public ResponseEntity acceptFriend(@RequestBody Friend friend){
 		
-		friend.setUserstatus("A");
+		friend.setUserStatus("A"); 
 		friend = friendDAO.saveOrUpdate(friend);
 		
 		return new ResponseEntity(friend, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/friends/{id}")
+	/*@DeleteMapping("/friends/{id}")
 	public ResponseEntity deleteFriend(@PathVariable int id) {
 		Friend friend=friendDAO.getByFriendId(id);
  		if (friend==null) {
@@ -90,6 +90,6 @@ public class FriendController {
  		friendDAO.delete(id);
 		return new ResponseEntity(id, HttpStatus.OK);
 
-	}
+	}*/
 
 }

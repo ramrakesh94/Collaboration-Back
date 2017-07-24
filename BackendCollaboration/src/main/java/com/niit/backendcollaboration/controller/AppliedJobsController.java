@@ -83,9 +83,9 @@ public ResponseEntity deleteaJob(@PathVariable int id) {
 		appliedJobsDAO.delete(id);
 	return new ResponseEntity(id, HttpStatus.OK);
 
-}
+}//what is REST
 
-@PostMapping("/appliedjobs")      //      Job job
+@PostMapping("/appliedjobs")      //      request body converts to java not json
 public ResponseEntity applyjob(@RequestBody AppliedJobs appliedJobs/*, HttpSession session*/) {
 	/*User user=(User)session.getAttribute("user");*/
 	

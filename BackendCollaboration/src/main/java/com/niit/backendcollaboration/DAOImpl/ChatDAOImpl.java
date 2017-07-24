@@ -1,4 +1,4 @@
-package com.niit.backendcollaboration.DAOImpl;
+/*package com.niit.backendcollaboration.DAOImpl;
 
 import java.util.List;
 
@@ -44,3 +44,4 @@ public class ChatDAOImpl implements ChatDAO {
 	}
 
 }
+*/

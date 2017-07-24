@@ -25,9 +25,18 @@ public class Friend {
 
 	private String friendName;
 	
-	private String Userstatus; // accepted / rejected
+	private String userStatus; // accepted / rejected
 	
 	private String isOnline;
+	
+
+	public String getUserStatus() {
+		return userStatus;
+	}
+
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
 
 	public int getId() {
 		return id;
@@ -69,13 +78,7 @@ public class Friend {
 		this.friendName = friendName;
 	}
 
-	public String getUserstatus() {
-		return Userstatus;
-	}
 
-	public void setUserstatus(String userstatus) {
-		Userstatus = userstatus;
-	}
 
 	public String getIsOnline() {
 		return isOnline;

@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -22,7 +22,7 @@ public class Blog {
 	
 	private String blogtitle;
 	
-	/*@LOB*/
+	@Lob
 	private String blogDescription;
 	
 	private int userId;

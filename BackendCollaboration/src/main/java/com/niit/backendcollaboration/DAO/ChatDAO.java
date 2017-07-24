@@ -1,4 +1,4 @@
-package com.niit.backendcollaboration.DAO;
+/*package com.niit.backendcollaboration.DAO;
 
 import java.util.List;
 
@@ -15,3 +15,4 @@ public interface ChatDAO {
 	public void delete(int id);
 
 }
+*/

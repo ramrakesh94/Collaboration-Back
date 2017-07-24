@@ -70,13 +70,14 @@ public class BlogController {
 		return new ResponseEntity(blog, HttpStatus.OK);
 	}
 
-	@PostMapping("/blogs")  //  commented all user stuff check later
+	@PostMapping("/blogs")  //  i have uncommented user stuff coz blog not getting added
 	public ResponseEntity save(@RequestBody Blog blog, HttpSession session) {
 		
-		/*User user = (User) session.getAttribute("user");  */ 
+		User user = (User) session.getAttribute("user");
 		System.out.println(blog.getBlogtitle());
-		/*blog.setUserId(user.getCusId());*/ // should i do this to make mapping work
-		/*blog.setName(user.getUsername());*/
+		blog.setUserId(user.getCusId()); // should i do this to make mapping work
+		blog.setName(user.getName());
+		blog.setStatus("NA");
 		blogDAO.saveOrUpdate(blog);
 				
 		return new ResponseEntity(blog, HttpStatus.OK);

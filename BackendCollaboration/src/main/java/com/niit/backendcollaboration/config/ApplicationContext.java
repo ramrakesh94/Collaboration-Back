@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.backendcollaboration.DAO.AppliedJobsDAO;
 import com.niit.backendcollaboration.DAO.BlogCommentsDAO;
 import com.niit.backendcollaboration.DAO.BlogDAO;
-import com.niit.backendcollaboration.DAO.ChatDAO;
+/*import com.niit.backendcollaboration.DAO.ChatDAO;*/
 /*import com.niit.backendcollaboration.DAO.EventsDAO;*/
 /*import com.niit.backendcollaboration.DAO.ForumCommentsDAO;
 import com.niit.backendcollaboration.DAO.ForumDAO;*/
@@ -27,9 +27,6 @@ import com.niit.backendcollaboration.DAO.UserDAO;
 import com.niit.backendcollaboration.DAOImpl.AppliedJobsDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.BlogCommentsDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.BlogDAOImpl;
-import com.niit.backendcollaboration.DAOImpl.ChatDAOImpl;
-/*import com.niit.backendcollaboration.DAOImpl.EventsDAOImpl;*/
-import com.niit.backendcollaboration.DAOImpl.ForumCommentsDAOImpl;
 /*import com.niit.backendcollaboration.DAOImpl.ForumDAOImpl;*/
 import com.niit.backendcollaboration.DAOImpl.FriendDAOImpl;
 import com.niit.backendcollaboration.DAOImpl.JobDAOImpl;
@@ -37,10 +34,6 @@ import com.niit.backendcollaboration.DAOImpl.UserDAOImpl;
 import com.niit.backendcollaboration.model.AppliedJobs;
 import com.niit.backendcollaboration.model.Blog;
 import com.niit.backendcollaboration.model.BlogCommentz;
-import com.niit.backendcollaboration.model.Chat;
-import com.niit.backendcollaboration.model.Events;
-import com.niit.backendcollaboration.model.Forum;
-import com.niit.backendcollaboration.model.ForumCommentz;
 import com.niit.backendcollaboration.model.Friend;
 import com.niit.backendcollaboration.model.Job;
 import com.niit.backendcollaboration.model.User;
@@ -92,7 +85,7 @@ public class ApplicationContext {
 
 		sessionBuilder.addAnnotatedClass(Blog.class);
 		sessionBuilder.addAnnotatedClass(BlogCommentz.class);
-		sessionBuilder.addAnnotatedClass(Chat.class);
+		/*sessionBuilder.addAnnotatedClass(Chat.class);*/
 		/*sessionBuilder.addAnnotatedClass(Events.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(ForumCommentz.class);*/
@@ -141,11 +134,11 @@ public class ApplicationContext {
 		return new ForumDAOImpl(sessionFactory);*/
 	
 
-	@Autowired(required = true)
+	/*@Autowired(required = true)
 	@Bean(name = "chatDAO")
 	public ChatDAO getChatDAO(SessionFactory sessionFactory) {
 		return new ChatDAOImpl(sessionFactory);
-	}
+	}*/
 
 	@Autowired(required = true)
 	@Bean(name = "friendDAO")
