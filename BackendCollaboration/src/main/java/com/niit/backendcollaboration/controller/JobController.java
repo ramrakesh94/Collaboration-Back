@@ -69,13 +69,14 @@ public ResponseEntity deleteJob(@PathVariable int id) {
 	return new ResponseEntity(id, HttpStatus.OK);
 
 }
-@PutMapping("/jobs/{id}") // works
-public ResponseEntity updateJob(@PathVariable String id, @RequestBody Job job) {
+@PutMapping("/job") // works
+public ResponseEntity updateJob( @RequestBody Job job) {
 
 	 jobDAO.saveOrUpdate(job);
 
-	if (null == job) {
-		return new ResponseEntity("No Job found for ID " + id, HttpStatus.NOT_FOUND);
+	if (job == null) {
+		
+		return new ResponseEntity("No Job found for id " + job.getId(), HttpStatus.NOT_FOUND);
 	}
 
 	return new ResponseEntity(job, HttpStatus.OK);

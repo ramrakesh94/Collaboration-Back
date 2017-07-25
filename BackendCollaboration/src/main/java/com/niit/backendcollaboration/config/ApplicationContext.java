@@ -34,6 +34,7 @@ import com.niit.backendcollaboration.DAOImpl.UserDAOImpl;
 import com.niit.backendcollaboration.model.AppliedJobs;
 import com.niit.backendcollaboration.model.Blog;
 import com.niit.backendcollaboration.model.BlogCommentz;
+import com.niit.backendcollaboration.model.Chat;
 import com.niit.backendcollaboration.model.Friend;
 import com.niit.backendcollaboration.model.Job;
 import com.niit.backendcollaboration.model.User;
@@ -85,7 +86,7 @@ public class ApplicationContext {
 
 		sessionBuilder.addAnnotatedClass(Blog.class);
 		sessionBuilder.addAnnotatedClass(BlogCommentz.class);
-		/*sessionBuilder.addAnnotatedClass(Chat.class);*/
+		sessionBuilder.addAnnotatedClass(Chat.class); 
 		/*sessionBuilder.addAnnotatedClass(Events.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(ForumCommentz.class);*/

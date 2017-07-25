@@ -53,7 +53,19 @@ public class FriendController {
 	}*/
 	@GetMapping("/friendsAccepted/{name}")  
 	public List<Friend> getByFriendAccepted(@PathVariable("name") String name) {
-		return friendDAO.getByFriendAccepted(name);
+		
+		List<Friend> friendList = friendDAO.getByFriendAccepted(name);
+		
+		return friendList;
+		
+	}
+	@GetMapping("/friendsAccepted1/{name}")  
+	public List<Friend> getByFriendAccepted1(@PathVariable("name") String name) {
+		
+		
+		List<Friend> friendList1 = friendDAO.getByFriendAccepted1(name);
+		
+		return friendList1;
 		
 	}
 	

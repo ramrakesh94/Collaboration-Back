@@ -1,4 +1,4 @@
-/*package com.niit.backendcollaboration.model;
+package com.niit.backendcollaboration.model;
 
 
 public class Chat {
@@ -38,4 +38,4 @@ public class Chat {
 	
 	
 	
-}*/
+}

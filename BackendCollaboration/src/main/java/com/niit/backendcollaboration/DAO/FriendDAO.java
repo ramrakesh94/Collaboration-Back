@@ -19,6 +19,8 @@ public interface FriendDAO {
 	public Friend saveOrUpdate(Friend friend);
 
 	public List<Friend> getByFriendAccepted(String name);
+	
+	public List<Friend> getByFriendAccepted1(String name);
 
 	public List<Friend> list(int friendId);
 	
