@@ -1,11 +1,15 @@
 package com.niit.backendcollaboration.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 import org.springframework.stereotype.Component;
 
@@ -23,14 +27,26 @@ public class AppliedJobs {   // one job how many applied admin as well as user s
 	private String jobname;
 	private int userId;
 	private String userName;
-	private Date dateofapply ;
-	private String timeofapply;
 	
-
+	private String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+	
+	/*
+	@Generated(value = { "" })
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date day = new java.sql.Date(new java.util.Date().getTime());
+*/
+	
+	
 
 	
 	public int getAjId() {
 		return ajId;
+	}
+	public String getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 	public void setAjId(int ajId) {
 		this.ajId = ajId;
@@ -53,18 +69,7 @@ public class AppliedJobs {   // one job how many applied admin as well as user s
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public Date getDateofapply() {
-		return dateofapply;
-	}
-	public void setDateofapply(Date dateofapply) {
-		this.dateofapply = dateofapply;
-	}
-	public String getTimeofapply() {
-		return timeofapply;
-	}
-	public void setTimeofapply(String timeofapply) {
-		this.timeofapply = timeofapply;
-	}
+	
 	
 
 	

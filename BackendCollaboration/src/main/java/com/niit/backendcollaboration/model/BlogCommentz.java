@@ -1,7 +1,7 @@
 package com.niit.backendcollaboration.model;
 
-import java.util.Date;
-
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,24 +25,20 @@ public class BlogCommentz {
 	private int userId;
 	private String bcomments;
 	private String username;
-	/*private String timeStamp = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());*/
+	private String timeStamp = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss").format(Calendar.getInstance().getTime());
 	private String mail;
 	                /// new methods 
 	
 	/*@ManyToOne
 	private User commentedBy;
 	*/
-	private  Date commentedOn;
+	
 	
 	/*private String Body;*/
 	
 	
-	public Date getCommentedOn() {
-		return commentedOn;
-	}
-	public void setCommentedOn(Date commentedOn) {
-		this.commentedOn = commentedOn;
-	}
+	
+	
 /*	public String getBody() {
 		return Body;
 	}
@@ -84,6 +80,12 @@ public class BlogCommentz {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public String getTimeStamp() {
+		return timeStamp;
+	}
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
 	}
 
 	

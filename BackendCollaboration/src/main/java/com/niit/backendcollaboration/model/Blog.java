@@ -1,6 +1,7 @@
 package com.niit.backendcollaboration.model;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,26 +35,18 @@ public class Blog {
 	/*@ManyToOne
 	private User createdBy;*/
 	
-	private Date postedOn;
-	
-	
-
-	
+	private String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
 	
 
-	public Date getPostedOn() {
-		return postedOn;
+
+
+	public String getTimeStamp() {
+		return timeStamp;
 	}
 
-	public void setPostedOn(Date postedOn) {
-		this.postedOn = postedOn;
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
 	}
-
-	
-
-	
-	
-	
 
 	public String getBlogtitle() {
 		return blogtitle;
